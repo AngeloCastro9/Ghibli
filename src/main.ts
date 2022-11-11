@@ -8,7 +8,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .addBearerAuth()
-    .setTitle('Api Swagger')
+    .setTitle('Ghibli Api Swagger')
     .setVersion('1.0')
     .addTag('API')
     .build();

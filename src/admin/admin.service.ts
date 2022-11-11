@@ -27,7 +27,7 @@ export class AdminService {
         return adminCreated;
     }
 
-    async readOne(id: number): Promise<admin> {
+    async readOne(id: string): Promise<admin> {
         const admin = await this.prisma.admin.findUnique({
             where: {
                 id
@@ -43,7 +43,7 @@ export class AdminService {
         return admin;
     }
 
-    async update(data: Prisma.adminUpdateInput, id: number): Promise<admin> {
+    async update(data: Prisma.adminUpdateInput, id: string): Promise<admin> {
         const admin = await this.prisma.admin.findUnique({
             where: {
                 id
@@ -68,7 +68,7 @@ export class AdminService {
         return adminUpdated;
     }
 
-    async disable(id: number): Promise<admin> {
+    async disable(id: string): Promise<admin> {
         const admin = await this.prisma.admin.findUnique({
             where: {
                 id
@@ -95,7 +95,7 @@ export class AdminService {
         return adminDisabled;
     }
 
-    async enable(id: number): Promise<admin> {
+    async enable(id: string): Promise<admin> {
         const admin = await this.prisma.admin.findUnique({
             where: {
                 id

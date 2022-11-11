@@ -1,11 +1,12 @@
 import { Body, Controller, Get, HttpStatus, Param, Post, Put, UseGuards } from "@nestjs/common";
-import { ApiBody, ApiParam, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiBody, ApiParam, ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import { AdminService } from "./admin.service";
 import CreateAdminDto from "./dto/createAdmin.dto";
 import UpdateAdminDto from "./dto/updateAdmin.dto";
 import { ParseCreateAdminPipe } from "./pipes/parseAdmin.pipe";
 
+@ApiBearerAuth()
 @ApiTags('Admin')
 @Controller('admin')
 export class AdminController {
@@ -27,7 +28,7 @@ export class AdminController {
     @Get('/:id')
     @ApiParam({ name: 'id', required: true })
     async readOne(
-        @Param('id') id: number,
+        @Param('id') id: string,
     ) {
         return {
             statusCode: HttpStatus.OK,
@@ -42,7 +43,7 @@ export class AdminController {
     @ApiParam({ name: 'id', required: true })
     async update(
         @Body(new ParseCreateAdminPipe()) data: UpdateAdminDto,
-        @Param('id') id: number,
+        @Param('id') id: string,
     ) {
         return {
             statusCode: HttpStatus.OK,
@@ -55,7 +56,7 @@ export class AdminController {
     @Put('/disable/:id')
     @ApiParam({ name: 'id', required: true })
     async disable(
-        @Param('id') id: number,
+        @Param('id') id: string,
     ) {
         return {
             statusCode: HttpStatus.OK,
@@ -68,7 +69,7 @@ export class AdminController {
     @Put('/enable/:id')
     @ApiParam({ name: 'id', required: true })
     async enable(
-        @Param('id') id: number,
+        @Param('id') id: string,
     ) {
         return {
             statusCode: HttpStatus.OK,

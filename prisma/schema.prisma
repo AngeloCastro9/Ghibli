@@ -12,7 +12,7 @@ datasource db {
 }
 
 model admin {
-  id         Int          @unique @default(autoincrement())
+  id         String       @id @default(uuid())
   name       String
   email      String       @unique
   password   String
@@ -22,7 +22,7 @@ model admin {
 }
 
 model films {
-  id            Int    @unique @default(autoincrement())
+  id            String @id @default(uuid())
   title         String
   originalTitle String
   description   String

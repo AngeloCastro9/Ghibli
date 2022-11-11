@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 const admins = [
     {
-        id: 1,
+        id: '632e56ee-a4d2-4f6f-bff6-d7e4395639da',
         name: 'John Doe',
         email: 'john@doe.com',
         password: '123456789',

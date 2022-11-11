@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty } from 'class-validator';
+import { int } from 'aws-sdk/clients/datapipeline';
+import { IsEmpty, IsNotEmpty } from 'class-validator';
 
 export class LoginDto {
     @IsNotEmpty()
@@ -9,4 +10,7 @@ export class LoginDto {
     @IsNotEmpty()
     @ApiProperty({ example: '123456789' })
     password: string;
+
+    @IsEmpty()
+    id: int;
 }

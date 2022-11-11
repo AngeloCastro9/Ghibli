@@ -4,6 +4,7 @@ import { PrismaService } from '../database/prisma.service';
 import * as bcrypt from "bcryptjs"
 import { admin } from '.prisma/client';
 import { randomBytes } from 'crypto';
+import { LoginDto } from './dto/login.dto';
 
 @Injectable()
 export class AuthService {
@@ -39,11 +40,10 @@ export class AuthService {
         return admin;
     }
 
-    async login(user: any) {
+    async login(user: LoginDto) {
         const payload = { id: user.id, sub: user.id };
 
         delete user.password;
-        delete user.resetPassCode;
 
         return {
             user,

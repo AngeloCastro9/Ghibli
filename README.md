@@ -6,10 +6,8 @@ How to init this project?
 
 2 - Run "docker-compose up -d" to create the postgreSQL database
 
-3 - Run "npx prisma migrate dev" to init the database table
+3 - Run "npx prisma migrate dev" to init the database table and create a use admin automatically
 
-4 - Run "yarn seed" to create a user admin automatically
+4 - Run "yarn start:dev" to init this project
 
-5 - Run "yarn start:dev" to init this project
-
-6 - Access "localhost:3333/api"
+5 - Access "localhost:3333/api"
